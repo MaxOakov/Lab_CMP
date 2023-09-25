@@ -1,33 +1,39 @@
 from sys import exit
-c = float
+
 
 def contin():
-    i = input('Do you want to continue? (y-Yes/n-No):')
-    if i == 'y':
-        calculator()
-    elif i == 'n':
-        exit(print("End"))
-    else:
-        print("Incorrect symbol, try again!")
-        contin()
+    i = 1
+    while i == 1:
+        cont = input('Do you want to continue? (y-Yes/n-No):')
+        if cont == 'y':
+            i = 0
+        elif cont == 'n':
+            exit(print("End"))
+        else:
+            print("Incorrect symbol, try again!")
 
 
 def history():
     with open("History", "r") as r:
-        for line in r:
-            print(r.read())
+        print(r.read())
+        contin()
 
 
 def save(res):
-    save = input("Do you want to save (y-Yes/n-No): ")
-    if save == 'y':
-        with open("History", "a", encoding='utf-8') as w:
-            w.write(str(res) + "\n")
-        print("Saving")
-    elif save == 'n':
-        print("...")
-    else:
-        print("Incorrect symbol try again")
+    i = 0
+    while i == 0:
+        save = input("Do you want to save (y-Yes/n-No): ")
+        if save == 'y':
+            with open("History", "a", encoding='utf-8') as w:
+                w.write(str(res) + "\n")
+            print("Saving")
+            i = 1
+            contin()
+        elif save == 'n':
+            print("...")
+            i = 1
+        else:
+            print("Incorrect symbol try again")
 
 
 def result(a, b, sign, c):
@@ -38,55 +44,59 @@ def result(a, b, sign, c):
     print(res)
     save(res)
 
-def calculator():
-    sign = input("Sign (+, -, *, /, **, %, s - √, h - history, c - clear history): ")
-    if sign in ('+', '-', '*', '/', '**', '%', 's', 'h', 'c'):
-        if sign == 'h':
-            history()
-            contin()
-        elif sign == 'c':
-            with open("History", "w") as file:
-                file.write('\n')
-                contin()
-        try:
-            a = float(input("a = "))
-            b = float(input("b = "))
-        except Exception:
-            print("Input number")
-            calculator()
 
-        f = "%." + input("Input number of float: ") + "f"
-        if f == '_':
-            f = "%.1f"
 
-        elif sign == '+':
-            c = (f % (a + b))
-            result(a,b,sign,c)
-        elif sign == '-':
-            c = (f % (a - b))
-            result(a, b, sign, c)
-        elif sign == '**':
-            c = (f % (a ** b))
-            result(a, b, sign, c)
-        elif sign == '%':
-            c = (f % (a % b))
-            result(a,b,sign,c)
-        elif sign == '*':
-            c = (f % (a * b))
-            result(a,b,sign,c)
-        elif sign == '/':
-            if b != 0:
-                c = (f % (a / b))
+def calc():
+    i = 1
+    numbers = 1
+    while i == 1:
+        a = None
+        b = None
+        f = None
+        sign = input("Sign (+, -, *, /, **, %, s - √, h - history, c - clear history): ")
+        if sign in ('h', 'c'):
+            if sign == 'h':
+                history()
+            elif sign == 'c':
+                with open("History", "w") as file:
+                    file.write('\n')
+                    contin()
+        elif sign in ('+', '-', '*', '/', '**', '%', 's'):
+
+            while numbers == 1:
+                try:
+                    a = float(input("a = "))
+                    b = float(input("b = "))
+                    f = int(input("Input number of float: "))
+                    numbers = 0
+                except ValueError:
+                    print("Use only numbers!")
+            f = "%." + str(f) + "f"
+
+
+            if sign == '+':
+                c = (f % (a + b))
                 result(a, b, sign, c)
-            else:
-                print("Division by zero!")
-        elif sign == 's' or '√':
-            c = a**(1/b)
-            result(a, b, sign, c)
-    else:
-        print("Incorrect sign!")
-        calculator()
-
-
-calculator()
-contin()
+            elif sign == '-':
+                c = (f % (a - b))
+                result(a, b, sign, c)
+            elif sign == '**':
+                c = (f % (a ** b))
+                result(a, b, sign, c)
+            elif sign == '%':
+                c = (f % (a % b))
+                result(a, b, sign, c)
+            elif sign == '*':
+                c = (f % (a * b))
+                result(a, b, sign, c)
+            elif sign == '/':
+                if b != 0:
+                    c = (f % (a / b))
+                    result(a, b, sign, c)
+                else:
+                    print("Division by zero!")
+            elif sign == 's' or '√':
+                c = a ** (1 / b)
+                result(a, b, sign, c)
+        else:
+            print("Incorrect sign!")
