@@ -31,6 +31,7 @@ def save(res):
             contin()
         elif save == 'n':
             print("...")
+            contin()
             i = 1
         else:
             print("Incorrect symbol try again")
@@ -50,9 +51,9 @@ def calc():
     i = 1
     numbers = 1
     while i == 1:
-        a = None
-        b = None
-        f = None
+        a = float
+        b = float
+        f = int
         sign = input("Sign (+, -, *, /, **, %, s - √, h - history, c - clear history): ")
         if sign in ('h', 'c'):
             if sign == 'h':
