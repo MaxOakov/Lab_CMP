@@ -1,0 +1,1 @@
+from labs.classes.Lab6.calculator_test import CalculatorArithmeticTester

@@ -1,0 +1,1 @@
+from labs.classes.Lab1.task_complition import *

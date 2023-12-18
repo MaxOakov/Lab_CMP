@@ -1,0 +1,1 @@
+from labs.classes.Lab4.ascii_art_generator import AsciiArtGenerator

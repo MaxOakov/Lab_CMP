@@ -1,0 +1,49 @@
+test_addition (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the addition functionality of the Calculator class. ... ERROR
+test_division (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the division functionality of the Calculator class. ... ERROR
+test_multiplication (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the multiplication functionality of the Calculator class. ... ERROR
+test_subtraction (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the subtraction functionality of the Calculator class. ... ERROR
+
+======================================================================
+ERROR: test_addition (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the addition functionality of the Calculator class.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/olegkuzo/Desktop/політех/2Курс/СМП/SPLLabs/Labs/labs/classes/Lab6/CalculatorTest.py", line 14, in setUp
+    self.calculator = Calculator.Calculator()
+AttributeError: type object 'Calculator' has no attribute 'Calculator'
+
+======================================================================
+ERROR: test_division (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the division functionality of the Calculator class.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/olegkuzo/Desktop/політех/2Курс/СМП/SPLLabs/Labs/labs/classes/Lab6/CalculatorTest.py", line 14, in setUp
+    self.calculator = Calculator.Calculator()
+AttributeError: type object 'Calculator' has no attribute 'Calculator'
+
+======================================================================
+ERROR: test_multiplication (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the multiplication functionality of the Calculator class.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/olegkuzo/Desktop/політех/2Курс/СМП/SPLLabs/Labs/labs/classes/Lab6/CalculatorTest.py", line 14, in setUp
+    self.calculator = Calculator.Calculator()
+AttributeError: type object 'Calculator' has no attribute 'Calculator'
+
+======================================================================
+ERROR: test_subtraction (labs.classes.Lab6.CalculatorTest.CalculatorArithmeticTester)
+Test the subtraction functionality of the Calculator class.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/olegkuzo/Desktop/політех/2Курс/СМП/SPLLabs/Labs/labs/classes/Lab6/CalculatorTest.py", line 14, in setUp
+    self.calculator = Calculator.Calculator()
+AttributeError: type object 'Calculator' has no attribute 'Calculator'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (errors=4)

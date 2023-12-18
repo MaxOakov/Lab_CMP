@@ -1,0 +1,1 @@
+from labs.classes.Lab5.console_rectangle import ConsoleRectangle
